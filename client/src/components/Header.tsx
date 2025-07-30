@@ -44,9 +44,9 @@ export function Header() {
               data-testid="header-logo"
             />
             <div>
-              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 leading-tight">
+              <h2 className="text-xl md:text-xl font-bold mb-4 md:mb-6 leading-tight">
   <span className="text-vlge-secondary">VLGE INSTITUTE </span>
-  <span className="text-red-500">PRIVATE LIMITED</span>
+  <span className="text-red-500">PVT LTD</span>
 </h2>
 
             </div>

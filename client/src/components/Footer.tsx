@@ -3,26 +3,27 @@ import { Facebook, Instagram, Linkedin, Phone, MessageCircle } from "lucide-reac
 
 export function Footer() {
   return (
-    <footer className="bg-white py-8 md:py-12 text-black mt-auto" data-testid="footer">
+    <footer className="bg-black py-8 md:py-12 text-gray-300 mt-auto" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-8">
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <img
-                src="https://i.postimg.cc/fygFn9nd/VLGE.png"
+                src="https://i.postimg.cc/m1Y2VRD4/VL.webp"
                 alt="VLGE Logo"
                 className="w-20 h-20"
                 data-testid="footer-logo"
               />
-              
             </div>
-            <h3 className="font-bold text-lg md:text-xl">VLGE INSTITUTE PRIVATE LIMITED</h3>
-            <p className="text-sm mb-4">
+            <h3 className="font-bold text-lg md:text-xl text-white">
+              VLGE INSTITUTE PRIVATE LIMITED
+            </h3>
+            <p className="text-sm text-gray-400 mb-4">
               An ISO 9001:2015 Certified Institute, Registered Company Under Govt of India,
               DPIIT Recognised Startup (Govt of India), Recognised by Startup TN and Approved by AICTE
             </p>
-            <p className="text-sm">
+            <p className="text-sm text-gray-400">
               No 2/216 2D, Sai Baba Nagar, K G Kandigai, Tiruttani TK, Tiruvallur District,
               Tamil Nadu - 631209
             </p>
@@ -30,33 +31,33 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/" className="hover:text-gray-700 transition-colors" data-testid="footer-link-home">Home</Link></li>
-              <li><Link href="/student-verification" className="hover:text-gray-700 transition-colors" data-testid="footer-link-verification">Student Verification</Link></li>
-              <li><Link href="/consultancy" className="hover:text-gray-700 transition-colors" data-testid="footer-link-consultancy">Consultancy</Link></li>
-              <li><Link href="/services" className="hover:text-gray-700 transition-colors" data-testid="footer-link-services">Services</Link></li>
-              <li><Link href="/courses" className="hover:text-gray-700 transition-colors" data-testid="footer-link-courses">Courses</Link></li>
-              <li><Link href="/contact" className="hover:text-gray-700 transition-colors" data-testid="footer-link-contact">Contact</Link></li>
+            <h4 className="font-semibold mb-4 text-white">Quick Links</h4>
+            <ul className="space-y-2 text-sm text-gray-300">
+              <li><Link href="/" className="hover:text-white transition-colors" data-testid="footer-link-home">Home</Link></li>
+              <li><Link href="/student-verification" className="hover:text-white transition-colors" data-testid="footer-link-verification">Student Verification</Link></li>
+              <li><Link href="/consultancy" className="hover:text-white transition-colors" data-testid="footer-link-consultancy">Consultancy</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors" data-testid="footer-link-services">Services</Link></li>
+              <li><Link href="/courses" className="hover:text-white transition-colors" data-testid="footer-link-courses">Courses</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors" data-testid="footer-link-contact">Contact</Link></li>
             </ul>
           </div>
 
           {/* Team */}
           <div>
-            <h4 className="font-semibold mb-4">Team</h4>
-            <div className="space-y-3 text-sm">
+            <h4 className="font-semibold mb-4 text-white">Team</h4>
+            <div className="space-y-3 text-sm text-gray-300">
               <div>
-                <p className="font-medium">Mr. Vibinraj M</p>
+                <p className="font-medium text-white">Mr. Vibinraj M</p>
                 <p>Administrative Officer</p>
                 <p>+91 77081 15754</p>
               </div>
               <div>
-                <p className="font-medium">Mr. Navin Sundar S D</p>
+                <p className="font-medium text-white">Mr. Navin Sundar S D</p>
                 <p>Marketing Manager</p>
                 <p>+91 94943 84482</p>
               </div>
               <div>
-                <p className="font-medium">Mr. Dayanidhi N</p>
+                <p className="font-medium text-white">Mr. Dayanidhi N</p>
                 <p>Resource Manager</p>
                 <p>support@valuelearn.in</p>
               </div>
@@ -65,19 +66,19 @@ export function Footer() {
         </div>
 
         {/* Contact & Social */}
-        <div className="border-t border-gray-300 pt-8">
+        <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex flex-col md:flex-row gap-4 mb-4 md:mb-0">
+            <div className="flex flex-col md:flex-row gap-4 mb-4 md:mb-0 text-gray-300">
               <a
                 href="mailto:info@valuelearn.in"
-                className="hover:text-gray-700 transition-colors"
+                className="hover:text-white transition-colors"
                 data-testid="footer-email"
               >
                 info@valuelearn.in
               </a>
               <a
                 href="tel:+917708115754"
-                className="hover:text-gray-700 transition-colors flex items-center gap-2"
+                className="hover:text-white transition-colors flex items-center gap-2"
                 data-testid="footer-phone"
               >
                 <Phone className="w-4 h-4" />
@@ -118,7 +119,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="text-center mt-8 pt-8 border-t border-gray-300">
+          <div className="text-center mt-8 pt-8 border-t border-gray-700 text-gray-400">
             <p className="text-sm">
               © 2024 by VLGE INSTITUTE PRIVATE LIMITED | Privacy Policy | Terms & Conditions
             </p>
