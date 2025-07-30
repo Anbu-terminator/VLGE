@@ -181,16 +181,31 @@ export default function Courses() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <Tabs defaultValue="certification" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-12 h-auto p-1">
-                <TabsTrigger value="certification">Certification<br /><span className="text-xs">(1–3 Months)</span></TabsTrigger>
-                <TabsTrigger value="diploma">Diploma<br /><span className="text-xs">(4–6 Months)</span></TabsTrigger>
-                <TabsTrigger value="pg-diploma">PG Diploma<br /><span className="text-xs">(6–12 Months)</span></TabsTrigger>
+              <TabsList className="flex md:grid md:grid-cols-3 mb-8 md:mb-12 h-auto p-1 gap-1 md:gap-4 overflow-x-auto scrollbar-hide">
+                <TabsTrigger
+                  value="certification"
+                  className="min-w-[160px] md:min-w-0 text-xs md:text-base px-3 py-2 md:py-3 flex-shrink-0"
+                >
+                  Certification<br /><span className="text-[9px] md:text-xs">(1–3 Months)</span>
+                </TabsTrigger>
+                <TabsTrigger
+                  value="diploma"
+                  className="min-w-[160px] md:min-w-0 text-xs md:text-base px-3 py-2 md:py-3 flex-shrink-0"
+                >
+                  Diploma<br /><span className="text-[9px] md:text-xs">(4–6 Months)</span>
+                </TabsTrigger>
+                <TabsTrigger
+                  value="pg-diploma"
+                  className="min-w-[160px] md:min-w-0 text-xs md:text-base px-3 py-2 md:py-3 flex-shrink-0"
+                >
+                  PG Diploma<br /><span className="text-[9px] md:text-xs">(6–12 Months)</span>
+                </TabsTrigger>
               </TabsList>
 
               <TabsContent value="certification">
                 <AnimatedSection>
-                  <div className="text-center mb-8">
-                    <h2 className="text-2xl font-bold vlge-secondary mb-2">Certification Courses</h2>
+                  <div className="text-center mb-6 md:mb-8 px-2">
+                    <h2 className="text-xl md:text-2xl font-bold vlge-secondary mb-2">Certification Courses</h2>
                     <p className="text-gray-600">Short-term courses to boost your skills quickly</p>
                   </div>
                   {renderCourseGrid(certificationCourses, "certification")}
@@ -199,8 +214,8 @@ export default function Courses() {
 
               <TabsContent value="diploma">
                 <AnimatedSection>
-                  <div className="text-center mb-8">
-                    <h2 className="text-2xl font-bold vlge-secondary mb-2">Diploma Courses</h2>
+                  <div className="text-center mb-6 md:mb-8 px-2">
+                    <h2 className="text-xl md:text-2xl font-bold vlge-secondary mb-2">Diploma Courses</h2>
                     <p className="text-gray-600">Comprehensive programs for deeper learning</p>
                   </div>
                   {renderCourseGrid(diplomaCourses, "diploma")}
@@ -209,8 +224,8 @@ export default function Courses() {
 
               <TabsContent value="pg-diploma">
                 <AnimatedSection>
-                  <div className="text-center mb-8">
-                    <h2 className="text-2xl font-bold vlge-secondary mb-2">PG Diploma Courses</h2>
+                  <div className="text-center mb-6 md:mb-8 px-2">
+                    <h2 className="text-xl md:text-2xl font-bold vlge-secondary mb-2">PG Diploma Courses</h2>
                     <p className="text-gray-600">Advanced programs for professional excellence</p>
                   </div>
                   {renderCourseGrid(pgDiplomaCourses, "pg-diploma")}

@@ -34,17 +34,17 @@ export function Header() {
       data-testid="header"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo & Company Name */}
           <Link href="/" className="flex items-center space-x-4" data-testid="logo-link">
             <img
               src="https://i.postimg.cc/fygFn9nd/VLGE.png"
               alt="VLGE Logo"
-              className="w-20 h-20 transition-all duration-300 hover:scale-110 hover:shadow-lg"
+              className="w-16 h-16 md:w-20 md:h-20 transition-all duration-300 hover:scale-110 hover:shadow-lg"
               data-testid="header-logo"
             />
             <div>
-              <h2 className="text-2xl font-bold mb-6 leading-tight">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 leading-tight">
   <span className="text-vlge-secondary">VLGE INSTITUTE </span>
   <span className="text-red-500">PRIVATE LIMITED</span>
 </h2>

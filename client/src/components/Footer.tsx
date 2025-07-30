@@ -3,9 +3,9 @@ import { Facebook, Instagram, Linkedin, Phone, MessageCircle } from "lucide-reac
 
 export function Footer() {
   return (
-    <footer className="bg-white py-12 text-black" data-testid="footer">
+    <footer className="bg-white py-8 md:py-12 text-black mt-auto" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-8">
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
@@ -15,7 +15,7 @@ export function Footer() {
                 className="w-20 h-20"
                 data-testid="footer-logo"
               />
-              <h3 className="font-bold text-xl">VLGE INSTITUTE PRIVATE LIMITED</h3>
+              <h3 className="font-bold text-lg md:text-xl">VLGE INSTITUTE PRIVATE LIMITED</h3>
             </div>
             <p className="text-sm mb-4">
               An ISO 9001:2015 Certified Institute, Registered Company Under Govt of India,
@@ -85,10 +85,10 @@ export function Footer() {
             </div>
 
             {/* Social Media Links */}
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-3 md:gap-4 justify-center">
               <a
                 href="https://wa.me/9345424497"
-                className="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
+                className="w-8 h-8 md:w-10 md:h-10 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 transition-colors"
                 data-testid="footer-whatsapp"
               >
                 <MessageCircle className="w-5 h-5" />

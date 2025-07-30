@@ -83,12 +83,12 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center pt-0">
+       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mt-16">
             <AnimatedSection animation="fadeInUp">
               <div>
-                <h1 className="text-5xl lg:text-6xl font-bold vlge-primary mb-6 leading-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold vlge-primary mb-4 md:mb-6 leading-tight">
                   Transform Your Future with
                   <span className="vlge-secondary block">VLGE Institute</span>
                 </h1>
@@ -105,7 +105,7 @@ export default function Home() {
                   <Link href="/contact">
                     <Button
                       variant="outline"
-                      className="border-vlge-secondary text-vlge-secondary hover:bg-vlge-secondary hover:text-white px-8 py-4 text-lg"
+                      className="border-vlge-secondary text-vlge-secondary hover:bg-vlge-secondary hover:text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg"
                     >
                       Book Consultation
                     </Button>
@@ -130,8 +130,8 @@ export default function Home() {
       </section>
 
       {/* About Us */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 md:py-16 bg-white">
+       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold vlge-primary mb-4">ABOUT US</h2>
@@ -139,7 +139,7 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-20">
             <AnimatedSection animation="slideInLeft">
               <div>
                 <img
@@ -154,7 +154,7 @@ export default function Home() {
 
             <AnimatedSection animation="fadeInUp" delay={0.2}>
               <div>
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-4 md:mb-6">
                   VLGE INSTITUTE PRIVATE LIMITED is a dynamic and innovative organization committed to transforming 
                   education and technology services. Established with a vision to empower students and institutions, 
                   we offer a range of professional solutions under three verticals:
@@ -178,11 +178,11 @@ export default function Home() {
           </div>
 
           {/* Mission & Vision */}
-          <div className="grid md:grid-cols-2 gap-6 mb-16">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-12 md:mb-16">
             <AnimatedSection animation="fadeInUp">
               <Card className="group bg-white border-2 border-vlge-primary/20 hover:shadow-xl hover:border-vlge-primary transition-all duration-300 h-full">
                 <CardContent className="p-6 min-h-[320px] flex flex-col">
-                  <h3 className="text-2xl font-bold vlge-primary mb-6 flex items-center">
+                  <h3 className="text-xl md:text-2xl font-bold vlge-primary mb-4 md:mb-6 flex items-center">
                     <TrendingUp className="mr-3" />
                     MISSION
                   </h3>
@@ -207,11 +207,11 @@ export default function Home() {
             <AnimatedSection animation="fadeInUp" delay={0.2}>
               <Card className="group bg-white border-2 border-vlge-secondary/20 hover:shadow-xl hover:border-vlge-secondary transition-all duration-300 h-full">
                 <CardContent className="p-6 min-h-[320px] flex flex-col">
-                  <h3 className="text-2xl font-bold vlge-secondary mb-6 flex items-center">
+                  <h3 className="text-xl md:text-2xl font-bold vlge-secondary mb-4 md:mb-6 flex items-center">
                     <Globe className="mr-3" />
                     VISION
                   </h3>
-                  <p className="text-gray-700 leading-relaxed mt-2">
+                  <p className="text-gray-700 leading-relaxed mt-2 text-base md:text-lg">
                     To become a leading global platform that integrates education, international opportunities,
                     and technological innovation — shaping a future where every student and entrepreneur has
                     the tools, support, and access to succeed in a competitive world.
