@@ -49,6 +49,7 @@ export default function Consultancy() {
   const [showVideo, setShowVideo] = useState(true);
   const heroImageRef = useRef<HTMLImageElement>(null);
   const flagRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useGSAP(() => {
     gsap.to(heroImageRef.current, {
@@ -288,3 +289,4 @@ export default function Consultancy() {
     </div>
   );
 }
+

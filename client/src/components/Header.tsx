@@ -5,6 +5,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
 export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -66,24 +67,30 @@ export function Header() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <Sheet>
-            <SheetTrigger asChild>
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+            <SheetTrigger asChild onClick={() => setIsMenuOpen(true)}>
               <Button
                 variant="ghost"
                 size="icon"
                 className="md:hidden text-vlge-secondary hover:text-vlge-primary"
                 data-testid="mobile-menu-button"
               >
-                <Menu className="h-6 w-6" />
+                <Menu className="h-6 w-6 transition-transform duration-200 hover:scale-110" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px]" data-testid="mobile-menu">
+            <SheetContent
+              side="right"
+              className="w-[300px] bg-white/95 backdrop-blur-lg transition-all duration-300"
+              data-testid="mobile-menu"
+              onInteractOutside={() => setIsMenuOpen(false)}
+            >
               <nav className="flex flex-col space-y-4 mt-8">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-vlge-secondary hover:text-vlge-primary transition-colors font-semibold text-lg"
+                    className="text-vlge-secondary hover:text-vlge-primary transition-all duration-200 transform hover:translate-x-2 font-semibold text-lg px-4 py-2"
+                    onClick={() => setIsMenuOpen(false)}
                     data-testid={`mobile-nav-link-${link.label.toLowerCase().replace(" ", "-")}`}
                   >
                     {link.label}

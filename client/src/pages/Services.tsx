@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { Link } from "wouter";
+import { useGSAP } from "@/hooks/use-gsap";
 import { 
   Code, 
   Smartphone, 
@@ -252,26 +254,30 @@ export default function Services() {
       <section className="py-20 bg-gradient-to-r from-vlge-primary to-vlge-secondary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl font-bold text-white mb-6">
+            <h2 className="text-3xl font-bold vlge-primary  mb-6">
               Ready to Start Your Project?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-vlge-secondary/90 mb-8">
               Get in touch with our expert team to discuss your requirements and get a customized solution.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+             <Link href="/contact">
               <Button 
                 className="bg-white text-vlge-primary hover:bg-gray-100 px-8 py-3 text-lg"
                 data-testid="button-get-quote"
               >
                 Get Free Quote
               </Button>
+               </Link>
+               <Link href="/contact">
               <Button 
                 variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-vlge-primary px-8 py-3 text-lg"
+                className="border-white text-vlge-primary hover:bg-white hover:text-vlge-primary px-8 py-3 text-lg"
                 data-testid="button-schedule-consultation"
               >
                 Schedule Consultation
               </Button>
+              </Link>
             </div>
           </AnimatedSection>
         </div>
@@ -279,3 +285,5 @@ export default function Services() {
     </div>
   );
 }
+ 
+               

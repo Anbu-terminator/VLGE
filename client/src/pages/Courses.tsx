@@ -1,12 +1,39 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle
+} from "@/components/ui/dialog";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Clock, Award, BookOpen } from "lucide-react";
+import { Link } from "wouter";
+import { useGSAP } from "@/hooks/use-gsap";
 
 export default function Courses() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://zfrmz.in/js/forms.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  const [openDialog, setOpenDialog] = useState(false);
+  const [submissionSuccess, setSubmissionSuccess] = useState(false);
+  const [currentCourse, setCurrentCourse] = useState("");
+  const [currentCourseCode, setCurrentCourseCode] = useState("");
+
+  const handleEnrollClick = (containerId: string, courseTitle: string) => {
+    setCurrentCourse(courseTitle);
+    setOpenDialog(true);
+  };
   const certificationCourses = [
     { code: "CWD", title: "Certificate in Web Designing", duration: "1-3 Months" },
     { code: "CJP", title: "Certificate in Java Programming", duration: "1-3 Months" },
@@ -86,8 +113,10 @@ export default function Courses() {
     { code: "PGDWT", title: "PG Diploma in Web Technologies & App Deployment", duration: "6-12 Months" },
   ];
 
+  
+
   const renderCourseGrid = (courses: any[], category: string) => (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid={`${category}-courses-grid`}>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {courses.map((course, index) => (
         <AnimatedSection key={course.code} delay={index * 0.05}>
           <Card className="h-full hover:shadow-lg transition-all duration-300 hover:scale-105">
@@ -101,9 +130,7 @@ export default function Courses() {
                   {course.duration}
                 </Badge>
               </div>
-              <CardTitle className="text-lg vlge-secondary leading-tight">
-                {course.title}
-              </CardTitle>
+              <CardTitle className="text-lg vlge-secondary leading-tight">{course.title}</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
               <div className="flex items-center justify-between">
@@ -111,13 +138,12 @@ export default function Courses() {
                   <Award className="w-4 h-4 mr-1" />
                   Certificate Provided
                 </div>
-                <Button 
-                  size="sm" 
-                  className="bg-vlge-primary hover:bg-red-600 text-white"
-                  data-testid={`button-enroll-${course.code.toLowerCase()}`}
+                <div
+                  onClick={() => handleEnrollClick(`zf_div_${course.code}`, course.title)}
+                  className="bg-vlge-primary hover:bg-red-600 text-white p-2 rounded-md text-sm cursor-pointer text-center"
                 >
                   Enroll Now
-                </Button>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -127,8 +153,8 @@ export default function Courses() {
   );
 
   return (
-    <div>
-      {/* Hero Section */}
+    <div className="courses-container">
+      {/* Header Section */}
       <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -150,42 +176,18 @@ export default function Courses() {
         </div>
       </section>
 
-      {/* Courses Section */}
+      {/* Courses Tabs Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <Tabs defaultValue="certification" className="w-full" data-testid="courses-tabs">
+            <Tabs defaultValue="certification" className="w-full">
               <TabsList className="grid w-full grid-cols-3 mb-12 h-auto p-1">
-                <TabsTrigger 
-                  value="certification" 
-                  className="py-4 px-6 text-sm font-semibold data-[state=active]:bg-vlge-primary data-[state=active]:text-white"
-                  data-testid="tab-certification"
-                >
-                  Certification Courses
-                  <br />
-                  <span className="text-xs opacity-80">(1-3 Months)</span>
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="diploma" 
-                  className="py-4 px-6 text-sm font-semibold data-[state=active]:bg-vlge-primary data-[state=active]:text-white"
-                  data-testid="tab-diploma"
-                >
-                  Diploma Courses
-                  <br />
-                  <span className="text-xs opacity-80">(4-6 Months)</span>
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="pg-diploma" 
-                  className="py-4 px-6 text-sm font-semibold data-[state=active]:bg-vlge-primary data-[state=active]:text-white"
-                  data-testid="tab-pg-diploma"
-                >
-                  PG Diploma Courses
-                  <br />
-                  <span className="text-xs opacity-80">(6-12 Months)</span>
-                </TabsTrigger>
+                <TabsTrigger value="certification">Certification<br /><span className="text-xs">(1–3 Months)</span></TabsTrigger>
+                <TabsTrigger value="diploma">Diploma<br /><span className="text-xs">(4–6 Months)</span></TabsTrigger>
+                <TabsTrigger value="pg-diploma">PG Diploma<br /><span className="text-xs">(6–12 Months)</span></TabsTrigger>
               </TabsList>
 
-              <TabsContent value="certification" className="mt-8">
+              <TabsContent value="certification">
                 <AnimatedSection>
                   <div className="text-center mb-8">
                     <h2 className="text-2xl font-bold vlge-secondary mb-2">Certification Courses</h2>
@@ -195,7 +197,7 @@ export default function Courses() {
                 </AnimatedSection>
               </TabsContent>
 
-              <TabsContent value="diploma" className="mt-8">
+              <TabsContent value="diploma">
                 <AnimatedSection>
                   <div className="text-center mb-8">
                     <h2 className="text-2xl font-bold vlge-secondary mb-2">Diploma Courses</h2>
@@ -205,7 +207,7 @@ export default function Courses() {
                 </AnimatedSection>
               </TabsContent>
 
-              <TabsContent value="pg-diploma" className="mt-8">
+              <TabsContent value="pg-diploma">
                 <AnimatedSection>
                   <div className="text-center mb-8">
                     <h2 className="text-2xl font-bold vlge-secondary mb-2">PG Diploma Courses</h2>
@@ -219,7 +221,7 @@ export default function Courses() {
         </div>
       </section>
 
-      {/* Features Section */}
+        {/* Features Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -273,34 +275,47 @@ export default function Courses() {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Final CTA */}
       <section className="py-20 bg-gradient-to-r from-vlge-primary to-vlge-secondary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl font-bold text-white mb-6">
-              Ready to Start Your Learning Journey?
-            </h2>
-            <p className="text-xl text-white/90 mb-8">
-              Join thousands of students who have transformed their careers with our courses.
-            </p>
+            <h2 className="text-3xl font-bold vlge-primary mb-6">Ready to Start Your Learning Journey?</h2>
+            <p className="text-xl font-bold vlge-secondary/90 mb-8">Join thousands of students who have transformed their careers with our courses.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                className="bg-white text-vlge-primary hover:bg-gray-100 px-8 py-3 text-lg"
-                data-testid="button-browse-courses"
-              >
-                Browse All Courses
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-vlge-primary px-8 py-3 text-lg"
-                data-testid="button-contact-advisor"
-              >
-                Contact Course Advisor
-              </Button>
+              <Link href="/contact">
+              <Button className="bg-white text-vlge-primary hover:bg-gray-100 px-8 py-3 text-lg">Browse All Courses</Button>
+              </Link>
+               <Link href="/contact">
+              <Button variant="outline" className="border-whitetext-vlge-primary hover:bg-white hover:text-vlge-primary px-8 py-3 text-lg">Contact Course Advisor</Button>
+              </Link>
             </div>
           </AnimatedSection>
         </div>
       </section>
+
+ {/* Enrollment Dialog */}
+      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+        <DialogContent className="sm:max-w-[900px] max-h-[90vh] overflow-hidden rounded-2xl p-0 shadow-xl border-0 bg-white animate-fade-in">
+          <DialogHeader className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-4 text-white">
+            <DialogTitle className="text-xl font-semibold">Enroll in {currentCourse}</DialogTitle>
+          </DialogHeader>
+          {submissionSuccess ? (
+            <div className="h-full flex flex-col items-center justify-center text-center px-6 py-12">
+              <Award className="w-16 h-16 text-green-500 mb-4" />
+              <h3 className="text-2xl font-bold mb-2">Thank you for enrolling!</h3>
+              <p className="text-gray-600">We'll contact you shortly with course details.</p>
+            </div>
+          ) : (
+            <div className="w-full h-[75vh]">
+              <iframe
+                src={`https://forms.zohopublic.in/infovalue1/form/CourseRegistrationForm/formperma/8-4z4ohuc8Clka-_UEb07pSf8KjBU5V7OAR4DmCsd0M?zf_rszfm=1&Course=${encodeURIComponent(currentCourse)}&Code=${encodeURIComponent(currentCourseCode)}`}
+                className="w-full h-full border-none"
+                aria-label="Course Registration Form"
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
