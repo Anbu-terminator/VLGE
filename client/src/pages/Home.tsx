@@ -84,7 +84,7 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <section className="min-h-screen bg-gradient-to-br from-gray-50 to-white flex items-center pt-0">
-       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mt-16">
             <AnimatedSection animation="fadeInUp">
               <div>
