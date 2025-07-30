@@ -52,15 +52,16 @@ export function Header() {
                 data-testid="header-logo"
               />
             </Link>
-            <motion.h2
-              className="ml-3 text-sm md:text-lg lg:text-xl font-bold leading-tight text-red-500 whitespace-nowrap truncate"
-              data-testid="company-name"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              VLGE INSTITUTE PVT LTD
-            </motion.h2>
+          <motion.h2
+  className="ml-3 text-xl md:text-3xl lg:text-5xl xl:text-3xl font-bold leading-tight text-red-500 whitespace-nowrap truncate"
+  data-testid="company-name"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.4 }}
+>
+  VLGE INSTITUTE PVT LTD
+</motion.h2>
+
           </motion.div>
 
           {/* Navigation (Desktop) */}
