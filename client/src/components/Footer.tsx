@@ -15,8 +15,9 @@ export function Footer() {
                 className="w-20 h-20"
                 data-testid="footer-logo"
               />
-              <h3 className="font-bold text-lg md:text-xl">VLGE INSTITUTE PRIVATE LIMITED</h3>
+              
             </div>
+            <h3 className="font-bold text-lg md:text-xl">VLGE INSTITUTE PRIVATE LIMITED</h3>
             <p className="text-sm mb-4">
               An ISO 9001:2015 Certified Institute, Registered Company Under Govt of India,
               DPIIT Recognised Startup (Govt of India), Recognised by Startup TN and Approved by AICTE
